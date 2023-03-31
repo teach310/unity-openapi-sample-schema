@@ -1,0 +1,11 @@
+description: monster
+content:
+  application/json:
+    schema:
+      $ref: "#/components/schemas/monster"
+    examples:
+      monster:
+        value:
+          id: 1
+          name: "Goblin"
+          tag: "goblin"

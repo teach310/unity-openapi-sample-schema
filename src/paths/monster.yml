@@ -1,0 +1,17 @@
+get:
+  summary: Info for a specific monster
+  operationId: monsters-show
+  tags:
+    - monsters
+  parameters:
+    - name: monster_id
+      in: path
+      required: true
+      description: The id of the monster to retrieve
+      schema:
+        type: string
+  responses:
+    "200":
+      $ref: '#/components/responses/monster'
+    "400":
+      $ref: '#/components/responses/bad_request'

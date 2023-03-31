@@ -1,0 +1,24 @@
+openapi: "3.0.3"
+info:
+  version: 1.0.0
+  title: Unity OpenAPI Sample
+  description: Sample API
+
+tags:
+  - name: monsters
+
+paths:
+  /monsters:
+    $ref: './paths/monsters.yml'
+  /monsters/{monster_id}:
+    $ref: './paths/monster.yml'
+
+components:
+  schemas:
+    monster:
+      $ref: './components/schemas/monster.yml'
+  responses:
+    monster:
+      $ref: './components/responses/monster.yml'
+    bad_request:
+      $ref: './components/responses/bad_request.yml'

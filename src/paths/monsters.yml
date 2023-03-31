@@ -1,0 +1,57 @@
+get:
+  summary: List all monsters
+  operationId: monsters-index
+  tags:
+    - monsters
+  parameters:
+    - name: limit
+      in: query
+      description: How many items to return at one time (max 100)
+      required: false
+      schema:
+        type: integer
+        format: int32
+  responses:
+    "200":
+      description: A paged array of monsters
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/monster"
+          examples:
+            monsters:
+              value:
+                - id: 1
+                  name: "Goblin"
+                  tag: "goblin"
+                - id: 2
+                  name: "Orc"
+                  tag: "orc"
+    "400":
+      $ref: '#/components/responses/bad_request'
+post:
+  summary: Create a monster
+  operationId: monsters-create
+  tags:
+    - monsters
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+              example: "Goblin"
+            tag:
+              type: string
+              example: "goblin"
+          required:
+            - name
+  responses:
+    "200":
+      $ref: '#/components/responses/monster'
+    "400":
+      $ref: '#/components/responses/bad_request'

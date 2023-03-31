@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  redoc:
+    image: redocly/redoc
+    ports:
+      - 8080:80
+    volumes:
+      - ./build/openapi.yml:/usr/share/nginx/html/openapi.yml
+    environment:
+      SPEC_URL: /openapi.yml
+  swagger-merger:
+    build:
+      dockerfile: ./docker/swagger-merger/Dockerfile
+    command: >
+     watch 'swagger-merger -i src/index.yml -o build/openapi.yml' src
+    volumes:
+      - ./:/schema
+    working_dir: /schema

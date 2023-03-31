@@ -1,0 +1,14 @@
+description: Bad Request
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          description: error message
+          example: "failed"
+        errors:
+          type: array
+          items:
+            type: string
