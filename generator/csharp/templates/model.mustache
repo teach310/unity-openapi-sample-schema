@@ -1,0 +1,15 @@
+{{>partial_header}}
+using UnityEngine;
+using System;
+using System.Text;
+using System.Collections;
+using System.Collections.Generic;
+
+{{#models}}
+{{#model}}
+namespace {{packageName}}.{{modelPackage}}
+{
+{{#isEnum}}{{>modelEnum}}{{/isEnum}}{{^isEnum}}{{>modelGeneric}}{{/isEnum}}
+{{/model}}
+{{/models}}
+}

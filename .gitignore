@@ -1,0 +1,3 @@
+/build/csharp/.openapi-generator/*
+/build/csharp/src/*
+.env
