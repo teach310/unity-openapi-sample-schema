@@ -28,12 +28,12 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Install redoc-cli
-        run: npm install -g redoc-cli
+      - name: Install Redocly CLI
+        run: npm i -g @redocly/cli@latest
       - name: Make docs dir
         run: mkdir -p docs
       - name: Build with redoc-cli
-        run: redoc-cli build build/openapi.yml docs/index.html
+        run: redocly build-docs build/openapi.yml -o docs/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
