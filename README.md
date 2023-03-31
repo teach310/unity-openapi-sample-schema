@@ -25,7 +25,13 @@ redoc and swagger-merger are running by
 docker compose up 
 ```
 
-You can edit files in src directory.
+You can edit schema files in src directory.
+
+and you can edit generator configs
+
+- change namespace by edit generator/config.json
+- change ignore files by edit build/csharp/.openapi-generator-ignore
+- change template by edit generator/templates
 
 ## Build
 
